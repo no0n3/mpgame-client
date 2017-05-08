@@ -1,0 +1,44 @@
+
+<div data-ng-show="!loading && !endGame">
+
+    <div data-ng-if="ownTurn">
+        YOUR TURN
+    </div>
+    <div data-ng-if="!ownTurn">
+        OPONENT TURN
+    </div>
+
+    <div style="display: inline-block;">
+        <div>
+            <div class="block" id="ele{{ $n}}" data-ng-repeat="$n in [0, 1, 2, 3, 4, 5]" data-ng-click="blockClick()" data-ng-class="{'dark-block' : blocks[$n].dark }">
+                <div data-ng-if="blocks[$n].hasPlayer" class="player"><div class="player-inner" data-ng-class="{'player1' : blocks[$n].player1, 'player2' : blocks[$n].player2 }"></div></div>
+            </div>
+        </div>
+        <div style="width: 62px; float: left;">
+            <div class="block" id="ele{{ $n}}" data-ng-repeat="$n in [19, 18, 17, 16]" data-ng-click="blockClick()" data-ng-class="{'dark-block' : blocks[$n].dark }">
+                <div data-ng-if="blocks[$n].hasPlayer" class="player"><div class="player-inner" data-ng-class="{'player1' : blocks[$n].player1, 'player2' : blocks[$n].player2 }"></div></div>
+            </div>
+        </div>
+        <div style="width: 62px; float: right;">
+            <div class="block" id="ele{{ $n}}" data-ng-repeat="$n in [6, 7, 8, 9]" data-ng-click="blockClick()" data-ng-class="{'dark-block' : blocks[$n].dark }">
+                <div data-ng-if="blocks[$n].hasPlayer" class="player"><div class="player-inner" data-ng-class="{'player1' : blocks[$n].player1, 'player2' : blocks[$n].player2 }"></div></div>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+        <div>
+            <div class="block" id="ele{{ $n}}" data-ng-repeat="$n in [15, 14, 13, 12, 11, 10]" data-ng-click="blockClick()" data-ng-class="{'dark-block' : blocks[$n].dark }">
+                <div data-ng-if="blocks[$n].hasPlayer" class="player"><div class="player-inner" data-ng-class="{'player1' : blocks[$n].player1, 'player2' : blocks[$n].player2 }"></div></div>
+            </div>
+        </div>
+    </div>
+
+    {{diceResult}}
+
+    <button data-ng-click="rollDice()" data-ng-enable="ownTurn">roll dice</button>
+    <button data-ng-click="setTrap()" data-ng-if="'can_set' === trapStatus">set trap</button>
+    <button data-ng-click="cancelTrap()" data-ng-if="'setting' === trapStatus">cancel trap</button>
+
+</div>
+<div data-ng-show="loading">LOADING ...</div>
+
+<div data-ng-show="endGame">PLAY AGAIN</div>

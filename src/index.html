@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link href="assets/css/style.css" rel="stylesheet"> 
+</head>
+<body data-ng-app="app">
+
+<ng-view></ng-view>
+
+<!-- build:js app.min.js -->
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-route/angular-route.min.js"></script>
+
+<script src="app.js"></script>
+<script src="app.routes.js"></script>
+<script src="home/home.controller.js"></script>
+<script src="game/game.controller.js"></script>
+<script src="game/game.service.js"></script>
+<!-- inject:js -->
+<!-- endinject -->
+<!-- endbuild -->
+
+</body>
+</html>
