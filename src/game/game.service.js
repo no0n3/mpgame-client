@@ -5,7 +5,7 @@
             .module('app')
             .factory('gameService', gameService);
 
-    gameService.$inject = ['$routeParams'];
+    gameService.$inject = ['$routeParams', 'wsServerDomain'];
 
     function Player(data) {
         data = data || {};
@@ -51,7 +51,7 @@
         };
     }
 
-    function gameService($routeParams) {
+    function gameService($routeParams, wsServerDomain) {
         var data = {};
 //        var blocks = [];
 
@@ -60,9 +60,9 @@
 
         var client = null;
 
-        function init() {
+        function init(token) {
             client = new WSClient({
-                url : 'ws://localhost:8080/?p1=xXXXdasdP1x/ds'
+                url : wsServerDomain + '?token=' + token
             });
             client.open();
 //            client = new WebSocket('ws://localhost:8080/', 'echo-protocol');
@@ -131,6 +131,7 @@
         function send(data) {
             if (client.readyState === client.OPEN) {
                 var d = JSON.stringify(data);
+                console.log('send: ', data)
                 client.send(d);
             }
         }
@@ -139,7 +140,7 @@
             init: function (idata) {
                 data = idata;
 //                blocks = idata.blocks;
-                init();
+                init(idata.token);
             },
             send: send,
             moveTo: function (index) {
