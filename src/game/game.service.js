@@ -62,7 +62,7 @@
 
         function init() {
             client = new WSClient({
-                url : 'ws://localhost:8080/?p1=dasdP1'
+                url : 'ws://localhost:8080/?p1=xXXXdasdP1x/ds'
             });
             client.open();
 //            client = new WebSocket('ws://localhost:8080/', 'echo-protocol');
