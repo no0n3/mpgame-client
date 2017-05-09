@@ -103,13 +103,13 @@
                     data.setPlayerPos(0, 1)
                     data.setPlayerPos(10, 2)
 
-                    playerN = resp.player;
+                    playerN = resp.playerN;
 
-                    data.setOwnTurn(1 == resp.player);
+                    data.setOwnTurn(1 == resp.playerN);
 
                     data.setLoading(false);
                 } else if ('move' === resp.type) {
-                    data.setPlayerPos(resp.pos, resp.player)
+                    data.setPlayerPos(resp.pos, resp.playerN);
                 } else if ('set_trap' === resp.type) {
                     data.setTrap(resp.pos)
                 } else if ('set_enemy_turn' === resp.type) {
