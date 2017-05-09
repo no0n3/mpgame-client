@@ -5,10 +5,10 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope'];
+    HomeController.$inject = ['$rootScope', '$scope', '$controller'];
 
-    function HomeController($scope) {
-        $scope.message = 'Hello AngularJS';
-        console.log('xxxxxas')
+    function HomeController($rootScope, $scope, $controller) {
+        angular.extend(this, $controller('BaseController', {$scope: $scope}));
+//        $scope.msg = 'Hello ' + $rootScope.user.email;
     }
 })();

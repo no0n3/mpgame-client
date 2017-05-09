@@ -10,8 +10,10 @@
     function authService($http, serverDomain) {
         return {
             login : function(data) {
-                console.log('serverDomain', serverDomain)
                 return $http.post(serverDomain + 'login', data);
+            },
+            signup : function(data) {
+                return $http.post(serverDomain + 'register', data);
             }
         };
     }

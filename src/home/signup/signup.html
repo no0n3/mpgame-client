@@ -1,1 +1,10 @@
 <h1>SIGN UP</h1>
+<form name="form" novalidate class="simple-form">
+    <label>Name <input type="text" name="name" ng-model="user.name" ng-disabled="loading" required/></label><br />
+    <label>E-mail: <input type="text" name="email" ng-model="user.email" ng-disabled="loading" required/></label><br />
+    <label>Password: <input type="password" name="password" ng-model="user.password" ng-disabled="loading" required/></label><br />
+    <br />
+    <input type="submit" ng-disabled="loading" ng-click="signup(form)" value="Sign up" />
+    <button ng-disabled="loading" ng-click="goToLogin()">login</button>
+</form>
+<pre>user = {{user | json}}</pre>
